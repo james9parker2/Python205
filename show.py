@@ -17,7 +17,9 @@ def removeStopwords(input):
 
 while True:
     input = raw_input("What is your name: ")
-    input = removeStopwords(input)
+    input = removeStopwords(greeting)
+    input = removeStopwords(reply)
+    input = removeStopwords(question)
     print(input)
     
     
