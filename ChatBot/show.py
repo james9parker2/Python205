@@ -4,6 +4,9 @@
 file = open("stop-words.txt")
 stopwords = file.readlines()
 
+#import wikipedia
+#print wikipedia.summary("Wikipedia")
+
 def removeStopwords(input):
     input = " " + input + " "
     for word in stopwords:
@@ -11,15 +14,28 @@ def removeStopwords(input):
         input = input.replace(" " + next + " ", " ")
         input = input.replace(" called ", " ")
         input = input.replace(" name ", " ")
+        input = input.replace(" thank ", " ")
+        input = input.replace(" thanks ", " ")
     input = input.strip()
     return input
 
 
 while True:
-    input = raw_input("What is your name: ")
-    input = removeStopwords(greeting)
-    input = removeStopwords(reply)
-    input = removeStopwords(question)
+    input = raw_input("Hello, what is your name?")
+    greeting = input
+    greeting = removeStopwords(greeting)
+    input = raw_input("Hi %s, How are you today?" % greeting)
+    reply = input
+    reply = removeStopwords(reply)
+    input = raw_input("%s, me too! :), where are you at the moment?" % reply)
+    question = input
+    question = removeStopwords(question)
+    input = raw_input("%s, I was there many years ago! What would you like to know about?" % question)
+    quirk = input
+    quirk = removeStopwords(quirk)
+    input = raw_input("%s? Here are some facts about %s:" % quirk)
+    #fact = 
+    
     print(input)
     
     
